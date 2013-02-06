@@ -108,7 +108,7 @@ if options[:file] == true
   end
 else
   options = YAML.load_file(options[:file]) if options[:file] && File.exists?(options[:file])
-
+  options.symbolize_keys!
   unless options[:db][:adapter]
     puts "Missing required arguments -a (--adapter) and -d (--database)"
     puts optparse
